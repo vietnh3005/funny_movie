@@ -17,5 +17,6 @@ public class Movie {
     public String title;
 
     public String description;
+    public String link;
 
 }

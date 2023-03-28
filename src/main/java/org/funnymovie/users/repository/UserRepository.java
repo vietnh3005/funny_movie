@@ -10,7 +10,7 @@ import java.util.Optional;
 @ApplicationScoped
 public class UserRepository {
     @Inject
-    EntityManager entityManager;
+    public EntityManager entityManager;
 
     public Optional<User> findByEmail(String email) {
         return Optional.ofNullable(entityManager.createNamedQuery("Users.findByEmail", User.class)

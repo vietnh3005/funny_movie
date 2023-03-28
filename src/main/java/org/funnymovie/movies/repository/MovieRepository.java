@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MovieRepository {
     @Inject
-    EntityManager entityManager;
+    public EntityManager entityManager;
 
     public List<Movie> findAllMovies() {
         return entityManager.createNamedQuery("Movies.findAllMovies", Movie.class)

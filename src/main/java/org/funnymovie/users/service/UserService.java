@@ -10,17 +10,17 @@ import java.util.Optional;
 @ApplicationScoped
 public class UserService {
     @Inject
-    private UserRepository repository;
+    public UserRepository userRepository;
 
     public User login(User user) {
-        Optional<User> loginUser = repository.findByEmailAndPassword(user.getEmail(), user.getPassword());
+        Optional<User> loginUser = userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
         if(loginUser.get() != null) return loginUser.get();
         return null;
     }
 
     public void register(User user) {
-        if(!repository.findByEmail(user.getEmail()).isPresent()) {
-            repository.create(user);
+        if(!userRepository.findByEmail(user.getEmail()).isPresent()) {
+            userRepository.create(user);
         }
     }
 }
