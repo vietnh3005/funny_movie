@@ -3,10 +3,10 @@ package org.funnymovie.movies.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@NamedQueries({
+        @NamedQuery(name = "Movies.findAllMovies", query = "SELECT m FROM Movie m ORDER BY m.id = :id") })
 @Entity
 @Getter
 @Setter
@@ -18,5 +18,4 @@ public class Movie {
 
     public String description;
 
-    public String email;
 }

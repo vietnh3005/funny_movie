@@ -6,9 +6,9 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @NamedQueries({
-        @NamedQuery(name = "Users.findByEmail", query = "SELECT c FROM User c where c.email = :email"),
-        @NamedQuery(name = "Users.findByEmailAndPassword", query = "SELECT c FROM User c where u.email = :email and  c.password = :password"),
-        @NamedQuery(name = "Users.findById", query = "SELECT c FROM User c ORDER BY c.id = :id") })
+        @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM User u where u.email = :email"),
+        @NamedQuery(name = "Users.findByEmailAndPassword", query = "SELECT u FROM User u where u.email = :email and u.password = :password"),
+        @NamedQuery(name = "Users.findById", query = "SELECT u FROM User u ORDER BY u.id = :id") })
 @Entity
 @Getter
 @Setter

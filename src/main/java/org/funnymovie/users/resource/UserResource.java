@@ -11,7 +11,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
 @ApplicationScoped
-@Path("/user")
+@Path("/users")
 public class UserResource {
 
     @Inject
