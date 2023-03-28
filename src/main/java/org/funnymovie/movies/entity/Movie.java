@@ -1,4 +1,4 @@
-package org.funnymovie.users.entities;
+package org.funnymovie.movies.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,14 +10,13 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class User {
+public class Movie {
     @Id
     @GeneratedValue
     public Long id;
+    public String title;
 
-    public String username;
-
-    public String password;
+    public String description;
 
     public String email;
 }
