@@ -4,11 +4,12 @@ import org.funnymovie.movies.entity.Movie;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @ApplicationScoped
 public class MovieRepository {
-    @Inject
+    @PersistenceContext
     public EntityManager entityManager;
 
     public List<Movie> findAllMovies() {
