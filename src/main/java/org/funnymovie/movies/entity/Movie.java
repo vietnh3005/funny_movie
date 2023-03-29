@@ -5,8 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@NamedQueries({
-        @NamedQuery(name = "Movies.findAllMovies", query = "SELECT m FROM Movie m ORDER BY m.id = :id") })
+@NamedQuery(name = "Movies.findAllMovies", query = "SELECT m FROM Movie m ORDER BY m.id")
 @Entity
 @Getter
 @Setter
