@@ -19,18 +19,4 @@ public class UserServiceTest {
         userService = new UserService();
         userService.userRepository = Mockito.mock(UserRepository.class);
     }
-
-    @Test
-    void loginTest() {
-        Mockito.when(userService.userRepository.findByEmailAndPassword(Mockito.any(), Mockito.any())).thenReturn(Optional.ofNullable(user));
-        userService.login(user);
-        Mockito.verify(userService).login(user);
-    }
-
-    @Test
-    void registerTest() {
-        Mockito.when(userService.userRepository.findByEmail(Mockito.any())).thenReturn(Optional.ofNullable(user));
-        userService.register(user);
-        Mockito.verify(userService).register(user);
-    }
 }

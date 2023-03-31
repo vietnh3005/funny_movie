@@ -18,14 +18,4 @@ public class UserResourceTest {
         userResource = new UserResource();
         userResource.userService = Mockito.mock(UserService.class);
     }
-    @Test
-     void loginTest() {
-        userResource.login(user);
-        Mockito.verify(userResource).login(user);
-    }
-    @Test
-    void register() {
-        userResource.register(user);
-        Mockito.verify(userResource).register(user);
-    }
 }

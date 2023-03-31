@@ -5,6 +5,8 @@ import org.funnymovie.users.entity.User;
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
@@ -12,21 +14,23 @@ public class UserRepository {
     @PersistenceContext
     public EntityManager entityManager;
 
-    public Optional<User> findByEmail(String email) {
-        return Optional.ofNullable(entityManager.createNamedQuery("Users.findByEmail", User.class).setParameter("email", email)
-                .getSingleResult());
+    public User findByEmail(String email) {
+        List<User> userList = entityManager.createNamedQuery("Users.findByEmail", User.class).setParameter("email", email).getResultList();
+        return userList.size() == 0 ? null : userList.get(0);
     }
 
-    public Optional<User> findByEmailAndPassword(String email, String password) {
-        return Optional.ofNullable(entityManager.createNamedQuery("Users.findByEmailAndPassword", User.class).setParameter("email", email).setParameter("password", password)
-                .getSingleResult());
+    public User findByEmailAndPassword(String email, String password) {
+        List<User> userList = entityManager.createNamedQuery("Users.findByEmailAndPassword", User.class).setParameter("email", email).setParameter("password", password)
+                .getResultList();
+        return userList.size() == 0 ? null : userList.get(0);
     }
 
-    public Optional<User> findById(String id) {
-        return Optional.ofNullable(entityManager.createNamedQuery("Users.findById", User.class).setParameter("id", id)
-                .getSingleResult());
+    public User findById(String id) {
+        List<User> userList = entityManager.createNamedQuery("Users.findById", User.class).setParameter("id", id)
+                .getResultList();
+        return userList.size() == 0 ? null : userList.get(0);
     }
-
+    @Transactional
     public void create(User user) {
         entityManager.persist(user);
     }

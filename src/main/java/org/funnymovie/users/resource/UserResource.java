@@ -23,16 +23,8 @@ public class UserResource {
     public UserService userService;
 
     @POST
-    @Path("/login")
-    public Response login(User user) {
-        User authorizedUser = userService.login(user);
-        return Response.status(200).entity(authorizedUser).build();
-    }
-
-    @POST
-    @Path("/register")
-    public Response register(@Valid User user ) {
-        userService.register(user);
-        return Response.status(201).build();
+    @Path("/authorize")
+    public Response authorize(User user) {
+        return userService.authorize(user);
     }
 }

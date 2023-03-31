@@ -64,7 +64,7 @@ table.blueTable tfoot .links a{
 }
 
 
-    </style>
+</style>
 </head>
 <body>
 <h3>Funny Movie</h3>
@@ -100,48 +100,44 @@ new Vue({
         movies: []
     }
 },
-    methods: {
-        login: function() {
-        var user = {
-                email: this.email,
-                password: this.password
-              };
-            axios.post("/users/login", JSON.stringify(user), {headers: {'Content-Type': 'application/json'}})
-            .then(response => {
-                this.findAll()
-            })
-        },
-        register: function() {
-          var user = {
-                email: this.email,
-                password: this.password
-              };
-         axios.post("/users/register", JSON.stringify(user), {headers: {'Content-Type': 'application/json'}})
-    .then(response => {
-        this.findAll();
-    })
-    .catch(error => {
-        console.log(error);
-    });
-        },
-        listMovies: function() {
-            axios.get("/movies")
-                .then(response => {
-                    this.movies = response.data
-                })
-        }
+methods: {
+    login: function() {
+    var user = {
+            email: this.email,
+            password: this.password
+          };
+        axios.post("/users/login", JSON.stringify(user), {headers: {'Content-Type': 'application/json'}})
+        .then(response => {
+            this.findAll()
+        })
     },
-    mounted: function() {
-       this.findAll()
+    register: function() {
+      var user = {
+            email: this.email,
+            password: this.password
+          };
+      axios.post("/users/register", JSON.stringify(user), {headers: {'Content-Type': 'application/json'}})
+.then(response => {
+    this.findAll();
+})
+.catch(error => {
+    console.log(error);
+});
+    },
+    listMovies: function() {
+        axios.get("/movies")
+            .then(response => {
+                this.movies = response.data
+            })
     }
+},
+mounted: function() {
+    this.findAll()
+}
 })
 
 </script>
-
-
 <div>
-
 </div>
-
 </body>
 </html>
